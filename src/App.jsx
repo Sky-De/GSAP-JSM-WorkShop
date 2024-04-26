@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
 import {
   GsapFrom,
@@ -10,18 +10,12 @@ import {
   GsapTo,
   Home,
 } from "./pages";
+import BackButton from "./components/BackButton";
 
 const App = () => {
-  const { pathname } = useLocation();
-  const navigate = useNavigate();
-  const handleBack = () => navigate(-1);
   return (
     <div className="bg-black min-h-screen w-full py-8">
-      {pathname !== "/" && (
-        <button className="m-4" onClick={handleBack}>
-          Back
-        </button>
-      )}
+      <BackButton />
       <Routes>
         <Route path="/gsapto" element={<GsapTo />} />
         <Route path="/gsapfrom" element={<GsapFrom />} />
